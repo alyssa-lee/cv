@@ -1,0 +1,204 @@
+% Curriculum Vitae template from https://github.com/gboeing/cv
+
+\RequirePackage[l2tabu,orthodox]{nag} % warn if using any obsolete commands
+\documentclass[11pt,letterpaper]{report} % document style
+
+% load encoding and font packages for pdflatex, in order
+\usepackage[T1]{fontenc}    % output 8-bit encoded fonts
+\usepackage[utf8]{inputenc} % allow input of utf-8 encoded characters
+\usepackage{ebgaramond}     % document's serif font
+\usepackage{tgheros}        % document's sans serif font
+
+% load babel, csquotes, and microtype in order
+\usepackage[USenglish]{babel} % auto-regionalize hyphens, quote marks, etc
+\usepackage[strict,autostyle]{csquotes} % smart and nestable quote marks
+\usepackage[babel=true]{microtype} % enable micro-typographic adjustments
+
+% load everything else
+\usepackage{datetime} % enable formatting of date output
+\usepackage{enumitem} % enumerate with [resume] option
+\usepackage{geometry} % manually set page margins
+\usepackage{setspace} % custom line spacing
+\usepackage{tabto}    % make nice tabbing
+\usepackage{titlesec} % allow custom section fonts
+
+% load hyperref last for compatibility
+\usepackage{hyperref} % enable hyperlinks and pdf metadata
+
+% what is your name?
+\newcommand{\myname}{Alyssa Lu Lee}
+
+% how far to tab for list items with left-aligned date: different fonts need different widths
+\newcommand{\listtabwidth}{1.7cm}
+
+% define font to use as document's title
+\newcommand{\namefont}[1]{{\normalfont\bfseries\Huge{#1}}}
+
+% set section heading fonts and before/after spacing
+\SetTracking{encoding=*, family=\sfdefault}{30} % increase heading font tracking
+\titleformat{\section}{\lsstyle\sffamily\small\bfseries\uppercase}{}{}{}{}
+\titlespacing{\section}{0pt}{30pt plus 4pt minus 4pt}{8pt plus 2pt minus 2pt}
+
+% set subsection heading fonts and before/after spacing
+\titleformat{\subsection}{\lsstyle\sffamily\footnotesize\bfseries}{}{}{}{}
+\titlespacing{\subsection}{0pt}{16pt plus 4pt minus 4pt}{4pt plus 2pt minus 2pt}
+
+% set page margins (assumes letter paper)
+\geometry{body={6.5in, 9.0in},
+    left=1.0in,
+    top=1.0in}
+
+% prevent paragraph indentation
+\setlength\parindent{0em}
+
+% set line spacing
+\setstretch{0.9}
+
+% define space between list items
+\newcommand{\listitemspace}{0.25em}
+
+% make unordered lists without bullets and use compact spacing
+\renewenvironment{itemize}
+{\begin{list}{}{\setlength{\leftmargin}{0em}
+                \setlength{\parskip}{0em}
+                \setlength{\itemsep}{\listitemspace}
+                \setlength{\parsep}{\listitemspace}}}
+{\end{list}}
+
+% make tabbed lists so content is left-aligned next to years
+\TabPositions{\listtabwidth}
+\newlist{tablist}{description}{3}
+\setlist[tablist]{leftmargin=\listtabwidth,
+    labelindent=0em,
+    topsep=0em,
+    partopsep=0em,
+    itemsep=\listitemspace,
+    parsep=\listitemspace,
+    font=\normalfont}
+
+% print only the month and year when using \today
+\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+
+% define hyperlink appearance and metadata for pdf properties
+\hypersetup{
+    colorlinks  = true,
+    urlcolor    = black,
+    citecolor   = black,
+    linkcolor   = black,
+    pdfauthor   = {\myname},
+    pdfkeywords = {},
+    pdftitle    = {\myname: Curriculum Vitae},
+    pdfsubject  = {Curriculum Vitae},
+    pdfpagemode = UseNone
+}
+
+\begin{document}
+    \raggedright{}
+
+    % display your name as the document title
+    \namefont{\myname}
+
+    % affiliation and contact info blocks
+    \vspace{1em}
+    \begin{minipage}[t]{0.700\textwidth}
+        % current primary affiliation, left-aligned
+        PhD Student \\
+        Institute for Quantitative Biomedicine \\
+        Rutgers University -- New Brunswick
+    \end{minipage}
+    \begin{minipage}[t]{0.295\textwidth}
+        % contact info details, right-aligned
+        \raggedleft{}
+        \href{mailto:alyssa.lee@rutgers.edu}{alyssa.lee@rutgers.edu}
+    \end{minipage}
+
+
+    \section*{Education}
+
+    \begin{tablist}
+
+        \item[PhD] \tab{}\textbf{Quantitative Biomedicine}, Rutgers University, 2025--
+        \tab{}Advised by Dr. Rohan Maddamsetti and Dr. Sagar Khare \\
+        \item[BS]  \tab{}\textbf{Computational Biology}, Carnegie Mellon University, 2020--2024
+
+    \end{tablist}
+
+
+
+    \section*{Experience}
+
+    \begin{tablist}
+
+        \item[2026--present]   \tab{}\textbf{Research Fellow} \\
+        \tab{}Institute for Quantitative Biomedicine\\
+        \tab{}Rutgers University -- New Brunswick
+
+        \item[2024--2025]   \tab{}\textbf{Bioinformatics Analyst} \\
+        \tab{}Bioinformatics Core, Department of Pediatrics, School of Medicine\\
+        \tab{}University of Pittsburgh
+
+        \item[2023] \tab{}\tab{}\textbf{Nonclinical Research and Development Intern} \\
+        \tab{}Bristol Myers Squibb
+
+        \item[2022--2023] \tab{}\textbf{Undergraduate Research Assistant} \\
+        \tab{}Machine Learning Department\\
+        \tab{}Carnegie Mellon University
+
+        \item[2022] \tab{}\tab{}\textbf{Software Engineer Intern} \\
+        \tab{}CNH Industrial
+
+    \end{tablist}
+
+
+
+    \section*{Research Areas}
+
+    \begin{itemize}
+
+        \item AI methods for protein design
+        \item Phage-host binding
+
+    \end{itemize}
+
+
+
+    \section*{Publications}
+
+    \subsection*{Preprints and Submitted Manuscripts}
+
+    \begin{tablist}
+
+        
+        \item[2026] \textbf{Lee, A. L.}, Sharma, A., \& Maddamsetti, R. (2026). \textit{Zero-shot ecological annotation of microbial genomes with myLLannotator accelerates scientific discovery} (p. 2026.01.18.700140) [preprint]. \textit{bioRxiv}. https://doi.org/10.64898/2026.01.18.700140
+        \item[2026] Zaky, S. H., Rajasundaram, D., \textbf{Lee, A. L.}, Summersgill, K., Levine, S., Boulos, O., Intini, G., Sfeir, C., \& Silva, R. M. (2026). \textit{Using Spatial Transcriptomics to Identify a Diagnostic Molecular Signature Associated with Reversible Dental Pulpitis} [preprint]. Research Square. https://doi.org/10.21203/rs.3.rs-7955718/v1
+        
+        \item[2026] Jacoby, M. L., Sun, C., Farren, J. L., Marti, M. M., \textbf{Lee, A. L.}, Donovan, T., Klein, R., Rajasundaram, D., \& Klimstra, W. B. (2026). \textit{Biphasic lymphoid tissue activation drives systemic innate immune responses to alphavirus infection} [Manuscript submitted for publication].
+
+    \end{tablist}
+
+    \subsection*{Journal Articles}
+
+    \begin{tablist}
+        \item[2026] Kargl, C. K., Nindl, B. C., Goulart, J. B., Feigel, E. D., Sahu, A., Fazeli, P. K., \textbf{Lee, A. L.}, Rajasundaram, D., Ambrosio, F., Hubal, M. J., Lovalekar, M. T., Martin, B. J., Sterczala, A. J., \& Koltun, K. J. (2026). Varying Influence of Menstrual Cycle Phase and Hormonal Contraceptive Use on Resistance Exercise-Induced Circulating Extracellular Vesicle and Metabolite Signalling. \textit{Journal of Extracellular Vesicles}, 15(3), e70244. https://doi.org/10.1002/jev2.70244
+        
+    \end{tablist}
+
+
+
+
+    \section*{Presentations}
+
+    \begin{tablist}
+        \item[2026] \tab{}\textbf{Lee, A. L.}, Sharma, A., \& Maddamsetti, R. (2026, March 12). \textit{myLLannotator: Using large language models for metadata annotation} [conference talk]. Rutgers Conference for Rising Stars in Graduate Research 2026, Rutgers University, New Brunswick, NJ.
+        \item[2026] \tab{}\textbf{Lee, A. L.}, Seamann, A. L., Chung, G., Zhao, C., Khare, S.D. (2026, April 7). \textit{HaloMPNN: AI Redesign of Proteins for Salt Tolerance} [poster]. Sargassum Biorefinery Annual Meeting, Rutgers University, New Brunswick, NJ.
+
+    \end{tablist}
+
+
+    % display today's date as Month Year after a vertical space below the end of the text
+    \begin{center}
+        \vfill
+        Updated \monthyeardate\today
+    \end{center}
+
+\end{document}
